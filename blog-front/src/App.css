@@ -4,4 +4,9 @@
   width: 100vw;
   height: 100vh;
   background-color: #dddddd;
+  background-image: url("./assets/HeroImage.png");
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 900px 500px;
 }
