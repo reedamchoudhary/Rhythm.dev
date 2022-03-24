@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./CommonScreen.css";
-import { Box } from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
+import CenteredFlex from "../Components/CenteredFlex";
+import { UserContext } from "./../App";
 
 const HomePage = () => {
+  const data = useContext(UserContext);
+  console.log(data);
   return (
-    <Box className={"entire-screen"}>
-      <h1>Home page</h1>
-    </Box>
+    <CenteredFlex>
+      <Heading>RHYTHM.DEV</Heading>
+    </CenteredFlex>
   );
 };
 
