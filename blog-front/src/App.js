@@ -32,12 +32,12 @@ function App() {
     >
       <UserContext.Provider value={{ data, theme, setTheme, colors }}>
         <Header />
-        {/* <Routes>
+        <Routes>
           <Route path={PATHS.HOME} element={<HomePage />} />
           <Route path={PATHS.POST} element={<SinglePost />} />
           <Route path={PATHS.POSTS} element={<Posts />} />
           <Route path={PATHS.ANYOTHERPATH} element={<NotFound />} />
-        </Routes> */}
+        </Routes>
       </UserContext.Provider>
     </div>
   );

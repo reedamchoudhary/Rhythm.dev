@@ -9,12 +9,10 @@ import Carousel from "../Components/Carousel";
 const HomePage = () => {
   const data = useContext(UserContext);
   return (
-    <CenteredFlex direction={"column"} w="100%" h="95%">
-      {/* <Card /> */}
+    <CenteredFlex direction={"column"} marginTop={"20px"}>
       <Carousel />
-
       <h1 className={"hero-heading"}>RHYTHM.DEV</h1>
-      <Card />
+      <Carousel />
     </CenteredFlex>
   );
 };

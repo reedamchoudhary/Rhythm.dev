@@ -5,14 +5,11 @@ const CenteredFlex = (props) => {
   const {
     children,
     direction = "row",
-    w = "100%",
-    h = "100%",
+
     ...rest
   } = props;
   return (
     <Flex
-      w={w}
-      h={h}
       justifyContent={"center"}
       alignItems={"center"}
       direction={direction}
