@@ -2,7 +2,13 @@ import { Flex } from "@chakra-ui/react";
 import React from "react";
 
 const CenteredFlex = (props) => {
-  const { children, direction = "row", w = "100%", h = "100%" } = props;
+  const {
+    children,
+    direction = "row",
+    w = "100%",
+    h = "100%",
+    ...rest
+  } = props;
   return (
     <Flex
       w={w}
@@ -11,6 +17,7 @@ const CenteredFlex = (props) => {
       alignItems={"center"}
       direction={direction}
       margin={"0px"}
+      {...rest}
     >
       {children}
     </Flex>

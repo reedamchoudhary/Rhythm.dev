@@ -3,7 +3,6 @@ import "./Components.css";
 
 const Card = () => {
   const heading = "Title Title Title Title Title ";
-  console.log(heading.length);
 
   const onClickHandler = () => {
     console.log("clicked");

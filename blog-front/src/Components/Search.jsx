@@ -1,10 +1,15 @@
 import React from "react";
+import { SearchIcon } from "@chakra-ui/icons";
 
 const Search = () => {
   return (
-    <div style={{ position: "fixed" }}>
-      <h1>Search</h1>
-    </div>
+    <SearchIcon
+      color={"white"}
+      w={7}
+      h={7}
+      marginTop={"10px"}
+      marginRight={"20px"}
+    />
   );
 };
 
