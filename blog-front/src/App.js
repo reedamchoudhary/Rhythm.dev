@@ -14,8 +14,10 @@ export const UserContext = createContext();
 function App() {
   const [data, setData] = useState({});
   const [theme, setTheme] = useState(false);
-  const lightBgColor = "#dddddd";
-  const darkBgColor = "#232323";
+  const colors = {
+    lightBgColor: "#dddddd",
+    darkBgColor: "#232323",
+  };
 
   useEffect(() => {
     Data(setData);
@@ -24,13 +26,13 @@ function App() {
   return (
     <div
       className="App"
-      style={{ backgroundColor: theme ? darkBgColor : lightBgColor }}
+      style={{
+        backgroundColor: theme ? colors.darkBgColor : colors.lightBgColor,
+      }}
     >
-      <UserContext.Provider
-        value={{ data, theme, setTheme, lightBgColor, darkBgColor }}
-      >
+      <UserContext.Provider value={{ data, theme, setTheme, colors }}>
         <Header />
-        {/*<Routes>
+        {/* <Routes>
           <Route path={PATHS.HOME} element={<HomePage />} />
           <Route path={PATHS.POST} element={<SinglePost />} />
           <Route path={PATHS.POSTS} element={<Posts />} />

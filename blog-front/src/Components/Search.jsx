@@ -8,7 +8,8 @@ const Search = () => {
       w={7}
       h={7}
       marginTop={"10px"}
-      marginRight={"20px"}
+      marginRight={"70px"}
+      cursor={"pointer"}
     />
   );
 };

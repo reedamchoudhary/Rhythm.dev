@@ -4,8 +4,7 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { Box } from "@chakra-ui/react";
 
 const ThemeToggler = () => {
-  const { theme, setTheme, lightBgColor, darkBgColor } =
-    useContext(UserContext);
+  const { theme, setTheme, colors } = useContext(UserContext);
 
   const toggleTheme = () => {
     setTheme(!theme);
@@ -15,7 +14,7 @@ const ThemeToggler = () => {
 
   return (
     <Box
-      backgroundColor={theme ? lightBgColor : darkBgColor}
+      backgroundColor={theme ? colors.lightBgColor : colors.darkBgColor}
       position={"fixed"}
       top={"0"}
       padding={"7px"}
