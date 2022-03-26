@@ -32,7 +32,10 @@ const Card = (props) => {
         }}
       >
         <i>
-          {date} {engagement} {engagement ? "mins read" : ""}
+          {date}.{" "}
+          <span style={{ padding: "0px 10px" }}>
+            {engagement} {engagement ? "mins read" : ""}
+          </span>
         </i>
       </p>
       <p>{description}</p>

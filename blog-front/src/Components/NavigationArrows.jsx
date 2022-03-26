@@ -15,7 +15,8 @@ const NavigationArrows = (props) => {
   const {
     children,
     direction = "row",
-
+    setStartingIndex,
+    startingIndex,
     ...rest
   } = props;
 
@@ -46,6 +47,7 @@ const NavigationArrows = (props) => {
 
               boxShadow: "10px 10px 10px " + shadowColor,
             }}
+            onClick={() => setStartingIndex(startingIndex - 4)}
           />
           {children}
           <ChevronRightIcon
@@ -65,6 +67,7 @@ const NavigationArrows = (props) => {
 
               boxShadow: "10px 10px 10px " + shadowColor,
             }}
+            onClick={() => setStartingIndex(startingIndex + 4)}
           />
         </CenteredFlex>
       ) : (

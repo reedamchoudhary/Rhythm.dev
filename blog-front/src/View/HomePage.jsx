@@ -13,18 +13,15 @@ const HomePage = () => {
   const [cardGridArray, setCardGridArray] = useState([]);
   console.log(data);
 
-  // const cardGrid = data.map((item) => {
-  //   return (
-  //     <Card
-  //       title={item?.postTitle}
-  //       description={item?.Description}
-  //       date={item?.Date}
-  //       engagement={item?.Engagement}
-  //     />
-  //   );
-  // });
+  useEffect(() => {
+    changeCardData();
+  }, [data]);
 
   useEffect(() => {
+    changeCardData();
+  }, [startingIndex]);
+
+  const changeCardData = () => {
     let tempArray = [];
     for (let i = startingIndex; i < startingIndex + 4; i++) {
       tempArray.push(
@@ -37,12 +34,19 @@ const HomePage = () => {
       );
     }
     setCardGridArray(tempArray);
-  }, [data]);
+  };
+
+  console.log(startingIndex);
 
   return (
     <CenteredFlex direction={"column"} marginTop={"20px"}>
       <CenteredFlex w={"80vw"} h={"260px"} justifyContent={"space-between"}>
-        <NavigationArrows>{cardGridArray}</NavigationArrows>
+        <NavigationArrows
+          setStartingIndex={setStartingIndex}
+          startingIndex={startingIndex}
+        >
+          {cardGridArray}
+        </NavigationArrows>
       </CenteredFlex>
       <h1 className={"hero-heading"}>RHYTHM.DEV</h1>
       <CenteredFlex w={"80vw"} h={"260px"} justifyContent={"space-between"}>
