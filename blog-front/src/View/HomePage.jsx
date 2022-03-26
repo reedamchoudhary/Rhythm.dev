@@ -4,53 +4,68 @@ import "./CommonScreen.css";
 import CenteredFlex from "../Components/CenteredFlex";
 import { UserContext } from "./../App";
 import Card from "../Components/Card";
-import Carousel from "../Components/Carousel";
 import NavigationArrows from "../Components/NavigationArrows";
 
 const HomePage = () => {
   const { data, theme } = useContext(UserContext);
-  const [startingIndex, setStartingIndex] = useState(0);
-  const [cardGridArray, setCardGridArray] = useState([]);
+  const [firstGrid, setFirstGrid] = useState({
+    start: 0,
+    end: 0,
+  });
+  const [secondGrid, setSecondGrid] = useState({
+    start: 0,
+    end: 0,
+  });
+  const [firstGridArray, setFirstGridArray] = useState([]);
+  const [secondGridArray, setSecondGridArray] = useState([]);
+
   console.log(data);
 
   useEffect(() => {
-    changeCardData();
+    let half = Math.ceil(data?.length / 2);
+    setFirstGrid({ ...firstGrid, end: half });
+    setSecondGrid({ ...secondGrid, start: half, end: data?.length });
   }, [data]);
 
   useEffect(() => {
-    changeCardData();
-  }, [startingIndex]);
+    changeCardData(firstGrid, setFirstGridArray);
+    changeCardData(secondGrid, setSecondGridArray);
+  }, [firstGrid, secondGrid]);
 
-  const changeCardData = () => {
+  const changeCardData = (grid, setCardGridArray) => {
     let tempArray = [];
-    for (let i = startingIndex; i < startingIndex + 4; i++) {
-      tempArray.push(
-        <Card
-          title={data[i]?.postTitle}
-          description={data[i]?.Description}
-          date={data[i]?.Date}
-          engagement={data[i]?.Engagement}
-        />
-      );
+    let limitingCondition =
+      grid.start + 4 < grid.end ? grid.start + 4 : grid.end;
+    if (grid.start < grid.end) {
+      for (let i = grid.start; i < limitingCondition; i++) {
+        tempArray.push(
+          <Card
+            title={data[i]?.postTitle}
+            description={data[i]?.Description}
+            date={data[i]?.Date}
+            engagement={data[i]?.Engagement}
+          />
+        );
+      }
     }
     setCardGridArray(tempArray);
   };
 
-  console.log(startingIndex);
+  console.log(firstGrid);
+  console.log(secondGrid);
 
   return (
     <CenteredFlex direction={"column"} marginTop={"20px"}>
       <CenteredFlex w={"80vw"} h={"260px"} justifyContent={"space-between"}>
-        <NavigationArrows
-          setStartingIndex={setStartingIndex}
-          startingIndex={startingIndex}
-        >
-          {cardGridArray}
+        <NavigationArrows grid={firstGrid} setGrid={setFirstGrid}>
+          {firstGridArray}
         </NavigationArrows>
       </CenteredFlex>
       <h1 className={"hero-heading"}>RHYTHM.DEV</h1>
       <CenteredFlex w={"80vw"} h={"260px"} justifyContent={"space-between"}>
-        <NavigationArrows>{cardGridArray}</NavigationArrows>
+        <NavigationArrows grid={secondGrid} setGrid={setSecondGrid}>
+          {secondGridArray}
+        </NavigationArrows>
       </CenteredFlex>
     </CenteredFlex>
   );
