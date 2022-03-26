@@ -3,7 +3,7 @@ import "./Components.css";
 import { UserContext } from "../App";
 
 const Card = (props) => {
-  const { theme } = useContext(UserContext);
+  const { theme, colors } = useContext(UserContext);
   const { title, description, engagement, date } = props;
 
   const onClickHandler = () => {
@@ -27,7 +27,7 @@ const Card = (props) => {
           fontFamily: "Laila",
           fontSize: "13px",
           padding: "10px 0px",
-          color: "#E9A1B2",
+          color: colors.pink,
         }}
       >
         <i>

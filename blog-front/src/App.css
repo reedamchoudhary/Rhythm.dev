@@ -11,5 +11,9 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 900px 500px;
+  /* transition-property: all;
+  transition-duration: 2s;
+  transition-timing-function: linear;
+  transition-delay: 1s; */
   /* font-family: "Laila", sans-serif; */
 }

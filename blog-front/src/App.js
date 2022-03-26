@@ -19,6 +19,7 @@ function App() {
   const colors = {
     lightBgColor: "#dddddd",
     darkBgColor: "#232323",
+    pink: "#E9A1B2",
   };
 
   useEffect(() => {
