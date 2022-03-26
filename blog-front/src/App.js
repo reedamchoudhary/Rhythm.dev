@@ -8,6 +8,8 @@ import * as PATHS from "./constants/path";
 import Data from "./assets/data";
 import { createContext, useEffect, useState } from "react";
 import Header from "./Components/Header";
+import HeroImage from "./assets/HeroImage.png";
+import HeroImageDark from "./assets/HeroImageDark.png";
 
 export const UserContext = createContext();
 
@@ -27,7 +29,9 @@ function App() {
     <div
       className="App"
       style={{
+        color: theme ? "white" : "black",
         backgroundColor: theme ? colors.darkBgColor : colors.lightBgColor,
+        backgroundImage: theme ? `url(${HeroImageDark})` : `url(${HeroImage})`,
       }}
     >
       <UserContext.Provider value={{ data, theme, setTheme, colors }}>

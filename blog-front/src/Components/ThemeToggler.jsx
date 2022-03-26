@@ -20,23 +20,12 @@ const ThemeToggler = () => {
       padding={"7px"}
       borderBottomRadius={"10px"}
       cursor={"pointer"}
+      onClick={toggleTheme}
     >
       {!theme ? (
-        <MoonIcon
-          onClick={toggleTheme}
-          color={"white"}
-          w={6}
-          h={6}
-          marginTop={"10px"}
-        />
+        <MoonIcon color={"white"} w={6} h={6} marginTop={"10px"} />
       ) : (
-        <SunIcon
-          onClick={toggleTheme}
-          marginTop={"10px"}
-          color={"black"}
-          w={6}
-          h={6}
-        />
+        <SunIcon marginTop={"10px"} color={"black"} w={6} h={6} />
       )}
     </Box>
   );

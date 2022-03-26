@@ -7,12 +7,18 @@ import Card from "../Components/Card";
 import Carousel from "../Components/Carousel";
 
 const HomePage = () => {
-  const data = useContext(UserContext);
+  const { data, theme } = useContext(UserContext);
   return (
     <CenteredFlex direction={"column"} marginTop={"20px"}>
-      <Carousel />
+      {/* <Carousel /> */}
+      <CenteredFlex w={"80vw"} justifyContent={"space-between"}>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </CenteredFlex>
       <h1 className={"hero-heading"}>RHYTHM.DEV</h1>
-      <Carousel />
+      {/* <Carousel /> */}
     </CenteredFlex>
   );
 };

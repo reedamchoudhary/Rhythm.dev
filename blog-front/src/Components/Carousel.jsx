@@ -15,7 +15,7 @@ const Carousel = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          width: "90vw",
+          width: "80vw",
         }}
       >
         <div class="carousel-item active">
