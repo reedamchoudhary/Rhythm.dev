@@ -10,8 +10,6 @@ const ThemeToggler = () => {
     setTheme(!theme);
   };
 
-  console.log("theme=", theme);
-
   return (
     <Box
       backgroundColor={theme ? colors.lightBgColor : colors.darkBgColor}

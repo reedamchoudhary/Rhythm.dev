@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import "./Components.css";
 import { UserContext } from "../App";
+import { Box } from "@chakra-ui/react";
 
 const Card = (props) => {
   const { theme, colors } = useContext(UserContext);
@@ -11,10 +12,10 @@ const Card = (props) => {
   };
 
   return (
-    <div
+    <Box
       className="card"
       style={{
-        padding: "10px",
+        margin: "10px",
         backgroundColor: theme
           ? "rgba(0, 0, 0, 0.6)"
           : "rgba(255, 255, 255, 0.6)",
@@ -35,7 +36,7 @@ const Card = (props) => {
         </i>
       </p>
       <p>{description}</p>
-    </div>
+    </Box>
   );
 };
 

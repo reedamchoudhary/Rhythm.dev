@@ -41,15 +41,13 @@ const HomePage = () => {
 
   return (
     <CenteredFlex direction={"column"} marginTop={"20px"}>
-      {/* <Carousel /> */}
-      <CenteredFlex w={"80vw"} justifyContent={"space-between"}>
+      <CenteredFlex w={"80vw"} h={"260px"} justifyContent={"space-between"}>
         <NavigationArrows>{cardGridArray}</NavigationArrows>
       </CenteredFlex>
       <h1 className={"hero-heading"}>RHYTHM.DEV</h1>
-      <CenteredFlex w={"80vw"} justifyContent={"space-between"}>
+      <CenteredFlex w={"80vw"} h={"260px"} justifyContent={"space-between"}>
         <NavigationArrows>{cardGridArray}</NavigationArrows>
       </CenteredFlex>
-      {/* <Carousel /> */}
     </CenteredFlex>
   );
 };

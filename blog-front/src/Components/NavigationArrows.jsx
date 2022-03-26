@@ -4,18 +4,26 @@ import {
   ChevronRightIcon,
   ChevronUpIcon,
 } from "@chakra-ui/icons";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CenteredFlex from "./CenteredFlex";
 import { UserContext } from "../App";
 
 const NavigationArrows = (props) => {
-  const { colors } = useContext(UserContext);
+  const { colors, theme } = useContext(UserContext);
+  const [shadowColor, setShadowColor] = useState("");
+  const [shadow, setShadow] = useState("");
   const {
     children,
     direction = "row",
 
     ...rest
   } = props;
+
+  useEffect(() => {
+    setShadowColor(theme ? "#161616" : "#B2B1B9");
+  }, [theme]);
+
+  console.log("theme=", shadow);
 
   return (
     <>
@@ -36,7 +44,7 @@ const NavigationArrows = (props) => {
               w: "12",
               h: "12",
 
-              boxShadow: "10px 10px 10px #B2B1B9",
+              boxShadow: "10px 10px 10px " + shadowColor,
             }}
           />
           {children}
@@ -55,7 +63,7 @@ const NavigationArrows = (props) => {
               w: "12",
               h: "12",
 
-              boxShadow: "10px 10px 10px #B2B1B9",
+              boxShadow: "10px 10px 10px " + shadowColor,
             }}
           />
         </CenteredFlex>
@@ -76,7 +84,7 @@ const NavigationArrows = (props) => {
               w: "12",
               h: "12",
 
-              boxShadow: "10px 10px 10px #B2B1B9",
+              boxShadow: "10px 10px 10px " + shadowColor,
             }}
           />
           {children}
@@ -95,7 +103,7 @@ const NavigationArrows = (props) => {
               w: "12",
               h: "12",
 
-              boxShadow: "10px 10px 10px #B2B1B9",
+              boxShadow: "10px 10px 10px " + shadowColor,
             }}
           />
         </CenteredFlex>
