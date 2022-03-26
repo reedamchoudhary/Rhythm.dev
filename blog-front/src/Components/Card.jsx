@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import "./Components.css";
 import { UserContext } from "../App";
 
-const Card = () => {
+const Card = (props) => {
   const { theme } = useContext(UserContext);
-  const heading = "Title Title Title Title Title ";
+  const { title, description, engagement, date } = props;
 
   const onClickHandler = () => {
     console.log("clicked");
@@ -21,10 +21,20 @@ const Card = () => {
       }}
       onClick={() => onClickHandler}
     >
-      <h1 style={{ fontSize: heading.length > 71 ? "16px" : "20px" }}>
-        {heading}
-      </h1>
-      <p>This is some text which represents the description of a post</p>
+      <h1 style={{ fontSize: "23px" }}>{title}</h1>
+      <p
+        style={{
+          fontFamily: "Laila",
+          fontSize: "13px",
+          padding: "10px 0px",
+          color: "#E9A1B2",
+        }}
+      >
+        <i>
+          {date} {engagement} {engagement ? "mins read" : ""}
+        </i>
+      </p>
+      <p>{description}</p>
     </div>
   );
 };

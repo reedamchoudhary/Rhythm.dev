@@ -19,6 +19,7 @@ const ThemeToggler = () => {
       top={"0"}
       padding={"7px"}
       borderBottomRadius={"10px"}
+      borderTopLeftRadius={"-5px"}
       cursor={"pointer"}
       onClick={toggleTheme}
     >
