@@ -12,6 +12,7 @@ import HeroImage from "./assets/HeroImage.png";
 import HeroImageDark from "./assets/HeroImageDark.png";
 import axios from "axios";
 import PuffLoader from "react-spinners/PuffLoader";
+import Social from "./Components/Social";
 
 export const UserContext = createContext();
 
@@ -24,6 +25,7 @@ function App() {
     lightBgColor: "#dddddd",
     darkBgColor: "#232323",
     pink: "#E9A1B2",
+    purple: "#FFD22E",
   };
 
   const override = `
@@ -82,6 +84,7 @@ function App() {
           <Route path={PATHS.POSTS} element={<Posts />} />
           <Route path={PATHS.ANYOTHERPATH} element={<NotFound />} />
         </Routes>
+        <Social />
         <div
           className="loader-overlay"
           style={{ display: loader ? "" : "none" }}
