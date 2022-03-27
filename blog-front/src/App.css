@@ -17,3 +17,16 @@
   transition-delay: 1s; */
   /* font-family: "Laila", sans-serif; */
 }
+
+.loader-overlay {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(247, 245, 242, 01);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

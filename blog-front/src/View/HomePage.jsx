@@ -18,8 +18,7 @@ const HomePage = () => {
   });
   const [firstGridArray, setFirstGridArray] = useState([]);
   const [secondGridArray, setSecondGridArray] = useState([]);
-
-  console.log(data);
+  const [horizontalCarouselClass, setHorizontalCarouselClass] = useState("");
 
   useEffect(() => {
     let half = Math.ceil(data?.length / 2);
@@ -51,13 +50,15 @@ const HomePage = () => {
     setCardGridArray(tempArray);
   };
 
-  console.log(firstGrid);
-  console.log(secondGrid);
-
   return (
-    <CenteredFlex direction={"column"} marginTop={"20px"}>
+    <CenteredFlex direction={"column"}>
       <CenteredFlex w={"80vw"} h={"260px"} justifyContent={"space-between"}>
-        <NavigationArrows grid={firstGrid} setGrid={setFirstGrid}>
+        <NavigationArrows
+          grid={firstGrid}
+          setGrid={setFirstGrid}
+          horizontalCarouselClass={horizontalCarouselClass}
+          setHorizontalCarouselClass={setHorizontalCarouselClass}
+        >
           {firstGridArray}
         </NavigationArrows>
       </CenteredFlex>

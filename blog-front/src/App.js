@@ -10,21 +10,60 @@ import { createContext, useEffect, useState } from "react";
 import Header from "./Components/Header";
 import HeroImage from "./assets/HeroImage.png";
 import HeroImageDark from "./assets/HeroImageDark.png";
+import axios from "axios";
+import PuffLoader from "react-spinners/PuffLoader";
 
 export const UserContext = createContext();
 
 function App() {
   const [data, setData] = useState({});
   const [theme, setTheme] = useState(false);
+  const [loader, setLoader] = useState(true);
+
   const colors = {
     lightBgColor: "#dddddd",
     darkBgColor: "#232323",
     pink: "#E9A1B2",
   };
 
+  const override = `
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+  `;
+
   useEffect(() => {
     Data(setData);
   }, []);
+
+  axios.interceptors.request.use(
+    (config) => {
+      setLoader(true);
+      // Do something before request is sent
+      return config;
+    },
+    (error) => {
+      setLoader(false);
+      // Do something with request error
+      return Promise.reject(error);
+    }
+  );
+  axios.interceptors.response.use(
+    (response) => {
+      setLoader(false);
+      // Any status code from range of 2xx
+      // Do something with response data
+      return response;
+    },
+    (error) => {
+      setLoader(false);
+      // Any status codes outside range of 2xx
+      // Do something with response error
+      return Promise.reject(error);
+    }
+  );
+
+  console.log(loader);
 
   return (
     <div
@@ -43,6 +82,12 @@ function App() {
           <Route path={PATHS.POSTS} element={<Posts />} />
           <Route path={PATHS.ANYOTHERPATH} element={<NotFound />} />
         </Routes>
+        <div
+          className="loader-overlay"
+          style={{ display: loader ? "" : "none" }}
+        >
+          <PuffLoader color={colors.pink} loading={loader} size={150} />
+        </div>
       </UserContext.Provider>
     </div>
   );

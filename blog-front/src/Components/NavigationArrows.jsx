@@ -12,13 +12,19 @@ const NavigationArrows = (props) => {
   const { colors, theme, data } = useContext(UserContext);
   const [shadowColor, setShadowColor] = useState("");
   const [shadow, setShadow] = useState("");
-  const { children, direction = "row", grid, setGrid, ...rest } = props;
+  const {
+    children,
+    direction = "row",
+    grid,
+    setGrid,
+    horizontalCarouselClass,
+    setHorizontalCarouselClass,
+    ...rest
+  } = props;
 
   useEffect(() => {
     setShadowColor(theme ? "#161616" : "#B2B1B9");
   }, [theme]);
-
-  console.log("theme=", data.length / 2);
 
   return (
     <>
@@ -42,6 +48,7 @@ const NavigationArrows = (props) => {
               boxShadow: "10px 10px 10px " + shadowColor,
             }}
             onClick={() => {
+              setHorizontalCarouselClass("carousel-transition ");
               if (grid.start < 4) setGrid({ ...grid, start: 0 });
               else if (grid.end > data?.length / 2) {
                 if (grid.start - data?.length / 2 < 4)
@@ -49,7 +56,9 @@ const NavigationArrows = (props) => {
               } else setGrid({ ...grid, start: grid.start - 4 });
             }}
           />
-          {children}
+          <CenteredFlex className={horizontalCarouselClass}>
+            {children}
+          </CenteredFlex>
           <ChevronRightIcon
             cursor={"pointer"}
             w={"10"}

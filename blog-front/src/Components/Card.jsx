@@ -22,7 +22,7 @@ const Card = (props) => {
       }}
       onClick={() => onClickHandler}
     >
-      <h1 style={{ fontSize: "23px" }}>{title}</h1>
+      <h1 style={{ fontSize: "23px", marginBottom: "10px" }}>{title}</h1>
       <p
         style={{
           fontFamily: "Laila",
@@ -31,7 +31,7 @@ const Card = (props) => {
           color: colors.pink,
         }}
       >
-        <i>
+        <i style={{ display: "block" }}>
           {date}.{" "}
           <span style={{ padding: "0px 10px" }}>
             {engagement} {engagement ? "mins read" : ""}
