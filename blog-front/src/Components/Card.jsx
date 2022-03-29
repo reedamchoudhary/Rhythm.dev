@@ -20,7 +20,6 @@ const Card = (props) => {
   } = props;
 
   const onClickHandler = () => {
-    console.log("clicked");
     navigate(Path.POST);
   };
 

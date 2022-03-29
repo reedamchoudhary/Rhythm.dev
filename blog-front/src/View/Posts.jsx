@@ -23,7 +23,6 @@ const Posts = () => {
           );
         })
       : "";
-  console.log(data);
 
   return (
     <CenteredFlex className={"posts"} direction={"column"}>
