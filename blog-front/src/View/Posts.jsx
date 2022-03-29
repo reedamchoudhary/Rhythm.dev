@@ -1,10 +1,5 @@
 import { SearchIcon } from "@chakra-ui/icons";
-import {
-  Input,
-  InputGroup,
-  InputRightAddon,
-  InputRightElement,
-} from "@chakra-ui/react";
+import { Input, InputGroup, InputRightElement } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { UserContext } from "../App";
 import Card from "../Components/Card";
