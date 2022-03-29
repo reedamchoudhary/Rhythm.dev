@@ -1,3 +1,10 @@
+import { SearchIcon } from "@chakra-ui/icons";
+import {
+  Input,
+  InputGroup,
+  InputRightAddon,
+  InputRightElement,
+} from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { UserContext } from "../App";
 import Card from "../Components/Card";
@@ -16,7 +23,7 @@ const Posts = () => {
               description={item?.Description}
               date={item?.Date}
               engagement={item?.Engagement}
-              w={"500px"}
+              w={"700px"}
               minHeight={"150px"}
               hover={false}
             />
@@ -26,6 +33,18 @@ const Posts = () => {
 
   return (
     <CenteredFlex className={"posts"} direction={"column"}>
+      <InputGroup
+        marginBottom={"30px"}
+        w={"900px"}
+        backgroundColor={"white"}
+        borderRadius={"10px"}
+      >
+        <Input autoFocus />
+        <InputRightElement>
+          <SearchIcon />
+        </InputRightElement>
+      </InputGroup>
+
       {allPosts}
     </CenteredFlex>
   );
