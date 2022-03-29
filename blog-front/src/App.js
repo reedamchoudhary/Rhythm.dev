@@ -65,8 +65,6 @@ function App() {
     }
   );
 
-  console.log(loader);
-
   return (
     <div
       className="App"

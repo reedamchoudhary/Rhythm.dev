@@ -64,7 +64,12 @@ const HomePage = () => {
       </CenteredFlex>
       <h1 className={"hero-heading"}>RHYTHM.DEV</h1>
       <CenteredFlex w={"80vw"} h={"260px"} justifyContent={"space-between"}>
-        <NavigationArrows grid={secondGrid} setGrid={setSecondGrid}>
+        <NavigationArrows
+          grid={secondGrid}
+          setGrid={setSecondGrid}
+          horizontalCarouselClass={horizontalCarouselClass}
+          setHorizontalCarouselClass={setHorizontalCarouselClass}
+        >
           {secondGridArray}
         </NavigationArrows>
       </CenteredFlex>

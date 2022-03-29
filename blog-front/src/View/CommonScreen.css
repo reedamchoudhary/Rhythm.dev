@@ -6,3 +6,8 @@
   padding-left: 30px;
   line-height: 170px;
 }
+
+.posts {
+  /* height: 100%; */
+  overflow-x: hidden;
+}

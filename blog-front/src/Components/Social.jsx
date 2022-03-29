@@ -15,42 +15,61 @@ const Social = () => {
     <Box backgroundColor={"red"}>
       <Box
         position={"fixed"}
-        bottom={"0px"}
-        right={"0px"}
-        w={"300px"}
-        h={"300px"}
-        borderTopLeftRadius={"100%"}
+        bottom={"-300px"}
+        right={"-300px"}
+        w={"600px"}
+        h={"600px"}
+        borderRadius={"100%"}
         backgroundColor={"rgba(255, 210, 46, 0.7)"}
-        display={showSocial ? "" : "none"}
+        // display={showSocial ? "" : "none"}
+        transform={showSocial ? "scale(1)" : "scale(0)"}
+        transition={"all 0.4s ease"}
+      ></Box>
+      <Box
+        position={"fixed"}
+        bottom={"190px"}
+        right={"60px"}
+        transform={showSocial ? "scale(1)" : "scale(0)"}
+        transition={"transform 0.4s ease"}
       >
-        <Box position={"fixed"} bottom={"190px"} right={"60px"}>
-          <GrInstagram
-            size={"35px"}
-            cursor={"pointer"}
-            color={socialColor}
-            onClick={() => window.open("https://www.instagram.com/geekydrama/")}
-          />
-        </Box>
-        <Box position={"fixed"} bottom={"140px"} right={"150px"}>
-          <FiTwitter
-            size={"35px"}
-            cursor={"pointer"}
-            color={socialColor}
-            onClick={() => window.open("https://twitter.com/ReedamChoudhary")}
-          />
-        </Box>
-        <Box position={"fixed"} bottom={"60px"} right={"180px"}>
-          <GrLinkedinOption
-            size={"35px"}
-            cursor={"pointer"}
-            color={socialColor}
-            onClick={() =>
-              window.open(
-                "https://www.linkedin.com/in/reedam-choudhary-295124154/"
-              )
-            }
-          />
-        </Box>
+        <GrInstagram
+          size={"35px"}
+          cursor={"pointer"}
+          color={socialColor}
+          onClick={() => window.open("https://www.instagram.com/geekydrama/")}
+        />
+      </Box>
+      <Box
+        position={"fixed"}
+        bottom={"140px"}
+        right={"150px"}
+        transform={showSocial ? "scale(1)" : "scale(0)"}
+        transition={"transform 0.4s ease"}
+      >
+        <FiTwitter
+          size={"35px"}
+          cursor={"pointer"}
+          color={socialColor}
+          onClick={() => window.open("https://twitter.com/ReedamChoudhary")}
+        />
+      </Box>
+      <Box
+        position={"fixed"}
+        bottom={"60px"}
+        right={"180px"}
+        transform={showSocial ? "scale(1)" : "scale(0)"}
+        transition={"transform 0.4s ease"}
+      >
+        <GrLinkedinOption
+          size={"35px"}
+          cursor={"pointer"}
+          color={socialColor}
+          onClick={() =>
+            window.open(
+              "https://www.linkedin.com/in/reedam-choudhary-295124154/"
+            )
+          }
+        />
       </Box>
       <Box
         position={"fixed"}

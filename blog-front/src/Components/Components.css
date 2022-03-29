@@ -1,6 +1,4 @@
 .card {
-  min-height: 230px;
-  width: 230px;
   border-radius: 20px;
   padding: 10px;
   cursor: pointer;
@@ -15,10 +13,10 @@
   height: 70px;
 }
 
-.card:hover {
+/* .card:hover {
   height: 250px;
   width: 250px;
-}
+} */
 
 .carousel-transition {
   position: relative;
