@@ -13,6 +13,7 @@ import HeroImageDark from "./assets/HeroImageDark.png";
 import axios from "axios";
 import PuffLoader from "react-spinners/PuffLoader";
 import Social from "./Components/Social";
+import { Box } from "@chakra-ui/react";
 
 export const UserContext = createContext();
 
@@ -76,12 +77,14 @@ function App() {
     >
       <UserContext.Provider value={{ data, theme, setTheme, colors }}>
         <Header />
-        <Routes>
-          <Route path={PATHS.HOME} element={<HomePage />} />
-          <Route path={PATHS.POST} element={<SinglePost />} />
-          <Route path={PATHS.POSTS} element={<Posts />} />
-          <Route path={PATHS.ANYOTHERPATH} element={<NotFound />} />
-        </Routes>
+        <Box marginTop={"50px"}>
+          <Routes>
+            <Route path={PATHS.HOME} element={<HomePage />} />
+            <Route path={PATHS.POST} element={<SinglePost />} />
+            <Route path={PATHS.POSTS} element={<Posts />} />
+            <Route path={PATHS.ANYOTHERPATH} element={<NotFound />} />
+          </Routes>
+        </Box>
         <Social />
         <div
           className="loader-overlay"

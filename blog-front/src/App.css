@@ -13,12 +13,11 @@
   background-size: 900px 500px;
   background-attachment: fixed;
   height: 100%;
-  overflow: auto;
-  /* transition-property: all;
-  transition-duration: 2s;
-  transition-timing-function: linear;
-  transition-delay: 1s; */
-  /* font-family: "Laila", sans-serif; */
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .loader-overlay {
