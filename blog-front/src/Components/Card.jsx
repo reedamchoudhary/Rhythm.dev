@@ -14,9 +14,11 @@ const Card = (props) => {
     description,
     engagement,
     date,
-    w = "230px",
-    minHeight = "230px",
+    w,
+    minHeight,
     hover = true,
+    headingFont = "23px",
+    lineHeight,
   } = props;
 
   const onClickHandler = () => {
@@ -25,26 +27,34 @@ const Card = (props) => {
 
   return (
     <Box
-      className="card"
+      className={"card"}
+      width={w ? w : ""}
+      minHeight={minHeight ? minHeight : ""}
       style={{
-        width: w,
-        minHeight: minHeight,
         margin: "10px",
         backgroundColor: theme
           ? "rgba(0, 0, 0, 0.6)"
           : "rgba(255, 255, 255, 0.6)",
       }}
       _hover={
-        hover
+        w || minHeight
           ? {
-              height: "250px",
-              width: "250px",
+              w: w,
+              minHeight: minHeight,
             }
           : ""
       }
       onClick={onClickHandler}
     >
-      <h1 style={{ fontSize: "23px", marginBottom: "10px" }}>{title}</h1>
+      <h1
+        style={{
+          fontSize: headingFont,
+          marginBottom: "10px",
+          height: lineHeight,
+        }}
+      >
+        {title}
+      </h1>
       <p
         style={{
           fontFamily: "Laila",

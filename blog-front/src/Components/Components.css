@@ -2,6 +2,8 @@
   border-radius: 20px;
   padding: 10px;
   cursor: pointer;
+  width: 230px;
+  min-height: 230px;
   transition-property: all;
   transition-duration: 0.3s;
   transition-timing-function: linear;
@@ -13,10 +15,10 @@
   height: 70px;
 }
 
-/* .card:hover {
+.card:hover {
   height: 250px;
   width: 250px;
-} */
+}
 
 .carousel-transition {
   position: relative;

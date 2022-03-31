@@ -21,6 +21,7 @@ const Posts = () => {
               w={"700px"}
               minHeight={"150px"}
               hover={false}
+              lineHeight={"150%"}
             />
           );
         })
