@@ -1,7 +1,11 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 const SinglePost = () => {
-  return <h1>Single post</h1>;
+  const { postName } = useParams();
+  console.log(postName);
+
+  return <h1>=ji</h1>;
 };
 
 export default SinglePost;

@@ -22,7 +22,7 @@ const Card = (props) => {
   } = props;
 
   const onClickHandler = () => {
-    navigate(Path.POST);
+    navigate(`${Path.POSTS}/${title}`);
   };
 
   return (
