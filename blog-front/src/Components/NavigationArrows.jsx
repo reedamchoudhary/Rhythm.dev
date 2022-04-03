@@ -30,10 +30,6 @@ const NavigationArrows = (props) => {
     setShadowColor(theme ? "#161616" : "#B2B1B9");
   }, [theme]);
 
-  console.log(itemArrayLength);
-  console.log(Math.ceil(itemArrayLength / limitingModulo));
-  console.log(activeIndex);
-
   return (
     <>
       {direction === "row" ? (
