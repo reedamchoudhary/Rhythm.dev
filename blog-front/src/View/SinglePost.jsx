@@ -1,15 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { UserContext } from "../App";
 import Page from "../Components/Page";
 import Card from "../Components/Card";
 import CenteredFlex from "../Components/CenteredFlex";
 import { Heading } from "@chakra-ui/react";
 import Carousel, { CarouselItem } from "../Components/Carousel";
+import * as Path from "../constants/path";
 
 const SinglePost = () => {
   const { postName } = useParams();
   const { data } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const [post, setPost] = useState("");
   const [firstGridArray, setFirstGridArray] = useState([]);
@@ -26,7 +28,12 @@ const SinglePost = () => {
   useEffect(() => {
     if (data?.length > 0) {
       let auxData = data?.filter((item) => item.postTitle.trim() === postName);
-      setPost(auxData[0]);
+      console.log(auxData);
+      if (auxData.length > 0) {
+        setPost(auxData[0]);
+      } else {
+        navigate(Path.ANYOTHERPATH);
+      }
     }
     setFirstGrid({ ...firstGrid, end: data.length });
     changeCardData();
@@ -34,8 +41,6 @@ const SinglePost = () => {
 
   const changeCardData = () => {
     let tempArray = [];
-    let limitingCondition =
-      firstGrid.start + 4 < firstGrid.end ? firstGrid.start + 4 : firstGrid.end;
 
     tempArray =
       data.length > 0
