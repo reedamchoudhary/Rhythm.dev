@@ -45,7 +45,16 @@ const Page = (props) => {
           marginY={"20px"}
         >
           <Text> </Text>
-          <Text>-By Reedam Choudhary</Text>
+          <i
+            style={{
+              fontFamily: "Laila",
+              fontSize: "13px",
+              padding: "10px 0px",
+              color: colors.pink,
+            }}
+          >
+            -By Reedam Choudhary
+          </i>
         </CenteredFlex>
         <CenteredFlex position={"absolute"} bottom={"10px"}>
           <BiPlanet size={"20px"} color={colors.pink} />

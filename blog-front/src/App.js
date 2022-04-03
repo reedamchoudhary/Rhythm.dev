@@ -42,26 +42,20 @@ function App() {
   axios.interceptors.request.use(
     (config) => {
       setLoader(true);
-      // Do something before request is sent
       return config;
     },
     (error) => {
       setLoader(false);
-      // Do something with request error
       return Promise.reject(error);
     }
   );
   axios.interceptors.response.use(
     (response) => {
       setLoader(false);
-      // Any status code from range of 2xx
-      // Do something with response data
       return response;
     },
     (error) => {
       setLoader(false);
-      // Any status codes outside range of 2xx
-      // Do something with response error
       return Promise.reject(error);
     }
   );
