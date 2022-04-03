@@ -21,6 +21,7 @@ function App() {
   const [data, setData] = useState({});
   const [theme, setTheme] = useState(false);
   const [loader, setLoader] = useState(true);
+  const [showSocial, setShowSocial] = useState(false);
 
   const colors = {
     lightBgColor: "#dddddd",
@@ -68,8 +69,11 @@ function App() {
         backgroundColor: theme ? colors.darkBgColor : colors.lightBgColor,
         backgroundImage: theme ? `url(${HeroImageDark})` : `url(${HeroImage})`,
       }}
+      onClick={() => setShowSocial(false)}
     >
-      <UserContext.Provider value={{ data, theme, setTheme, colors }}>
+      <UserContext.Provider
+        value={{ showSocial, setShowSocial, data, theme, setTheme, colors }}
+      >
         <Header />
         <Box marginTop={"50px"}>
           <Routes>

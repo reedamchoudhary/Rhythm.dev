@@ -7,8 +7,8 @@ import { GrLinkedinOption } from "react-icons/gr";
 import { UserContext } from "../App";
 
 const Social = () => {
-  const { colors, theme } = useContext(UserContext);
-  const [showSocial, setShowSocial] = useState(false);
+  const { colors, theme, showSocial, setShowSocial } = useContext(UserContext);
+
   const socialColor = colors.pink;
 
   return (
@@ -75,7 +75,10 @@ const Social = () => {
         position={"fixed"}
         bottom={"30px"}
         right={"30px"}
-        onClick={() => setShowSocial(!showSocial)}
+        onClick={(e) => {
+          e.stopPropagation();
+          setShowSocial(!showSocial);
+        }}
       >
         <FaUserAstronaut size={"35px"} cursor={"pointer"} color={socialColor} />
       </Box>
