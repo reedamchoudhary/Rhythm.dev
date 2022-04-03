@@ -11,7 +11,7 @@ import { UserContext } from "../App";
 const NavigationArrows = (props) => {
   const { colors, theme, data } = useContext(UserContext);
   const [shadowColor, setShadowColor] = useState("");
-  const [shadow, setShadow] = useState("");
+
   const {
     children,
     direction = "row",
@@ -19,12 +19,20 @@ const NavigationArrows = (props) => {
     setGrid,
     horizontalCarouselClass,
     setHorizontalCarouselClass,
+    setActiveIndex,
+    activeIndex,
+    itemArrayLength,
+    limitingModulo,
     ...rest
   } = props;
 
   useEffect(() => {
     setShadowColor(theme ? "#161616" : "#B2B1B9");
   }, [theme]);
+
+  console.log(itemArrayLength);
+  console.log(Math.ceil(itemArrayLength / limitingModulo));
+  console.log(activeIndex);
 
   return (
     <>
@@ -47,14 +55,11 @@ const NavigationArrows = (props) => {
 
               boxShadow: "10px 10px 10px " + shadowColor,
             }}
-            onClick={() => {
-              setHorizontalCarouselClass("carousel-transition ");
-              if (grid.start < 4) setGrid({ ...grid, start: 0 });
-              else if (grid.end > data?.length / 2) {
-                if (grid.start - data?.length / 2 < 4)
-                  setGrid({ ...grid, start: data?.length / 2 });
-              } else setGrid({ ...grid, start: grid.start - 4 });
-            }}
+            onClick={() =>
+              setActiveIndex(
+                (activeIndex + 1) % Math.ceil(itemArrayLength / limitingModulo)
+              )
+            }
           />
           <CenteredFlex className={horizontalCarouselClass}>
             {children}
@@ -76,11 +81,11 @@ const NavigationArrows = (props) => {
 
               boxShadow: "10px 10px 10px " + shadowColor,
             }}
-            onClick={() => {
-              if (grid.end - grid.start < 4)
-                setGrid({ ...grid, start: grid.start + 4 });
-              else setGrid({ ...grid, start: grid.end - 4 });
-            }}
+            onClick={() =>
+              setActiveIndex(
+                (activeIndex - 1) % Math.ceil(itemArrayLength / limitingModulo)
+              )
+            }
           />
         </CenteredFlex>
       ) : (

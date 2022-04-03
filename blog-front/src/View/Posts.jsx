@@ -44,8 +44,6 @@ const Posts = () => {
     } else setAllPostsArray(data);
   }, [searchValue]);
 
-  console.log(allPostsArray);
-
   return (
     <CenteredFlex className={"posts"} direction={"column"}>
       <Box

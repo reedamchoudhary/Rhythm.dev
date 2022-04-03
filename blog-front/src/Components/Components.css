@@ -27,3 +27,14 @@
   transition-duration: 0.3s;
   transition-timing-function: linear;
 }
+
+.carousel-item{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.inner{
+  transition: all 0.7s ease-in-out;
+}

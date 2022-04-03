@@ -28,8 +28,9 @@ const Card = (props) => {
   return (
     <Box
       className={"card"}
-      width={w ? w : ""}
+      width={w ? w : "230px"}
       minHeight={minHeight ? minHeight : ""}
+      flexShrink={"0"}
       style={{
         margin: "10px",
         backgroundColor: theme

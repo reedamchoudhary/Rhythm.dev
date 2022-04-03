@@ -7,7 +7,6 @@ import { BiPlanet } from "react-icons/bi";
 const Page = (props) => {
   const { theme, colors } = useContext(UserContext);
   const { post } = props;
-  console.log(post);
   return (
     <CenteredFlex w={"100%"}>
       <CenteredFlex
@@ -15,6 +14,7 @@ const Page = (props) => {
         flexDirection={"column"}
         justifyContent={"flex-start"}
         w={"55%"}
+        minWidth={"700px"}
         borderRadius={"20px"}
         textAlign={"justify"}
         margin={"20px"}

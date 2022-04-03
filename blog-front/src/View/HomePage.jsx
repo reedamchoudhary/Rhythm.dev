@@ -5,6 +5,7 @@ import CenteredFlex from "../Components/CenteredFlex";
 import { UserContext } from "./../App";
 import Card from "../Components/Card";
 import NavigationArrows from "../Components/NavigationArrows";
+import Carousel, { CarouselItem } from "../Components/Carousel";
 
 const HomePage = () => {
   const { data, theme } = useContext(UserContext);
@@ -32,46 +33,42 @@ const HomePage = () => {
   }, [firstGrid, secondGrid]);
 
   const changeCardData = (grid, setCardGridArray) => {
-    let tempArray = [];
-    let limitingCondition =
-      grid.start + 4 < grid.end ? grid.start + 4 : grid.end;
-    if (grid.start < grid.end) {
-      for (let i = grid.start; i < limitingCondition; i++) {
-        tempArray.push(
+    let auxArray = [];
+    for (let i = grid.start; i < grid.end; i++) {
+      auxArray.push(
+        <CarouselItem>
           <Card
             title={data[i]?.postTitle}
             description={data[i]?.Description}
             date={data[i]?.Date}
             engagement={data[i]?.Engagement}
           />
-        );
-      }
+        </CarouselItem>
+      );
     }
-    setCardGridArray(tempArray);
+    setCardGridArray(auxArray);
   };
 
   return (
     <CenteredFlex direction={"column"}>
       <CenteredFlex w={"80vw"} h={"260px"} justifyContent={"space-between"}>
-        <NavigationArrows
-          grid={firstGrid}
-          setGrid={setFirstGrid}
-          horizontalCarouselClass={horizontalCarouselClass}
-          setHorizontalCarouselClass={setHorizontalCarouselClass}
+        <Carousel
+          limitingModulo={4}
+          translatePercent={50}
+          itemArrayLength={firstGridArray.length}
         >
-          {firstGridArray}
-        </NavigationArrows>
+          <CenteredFlex>{firstGridArray}</CenteredFlex>
+        </Carousel>
       </CenteredFlex>
       <h1 className={"hero-heading"}>RHYTHM.DEV</h1>
       <CenteredFlex w={"80vw"} h={"260px"} justifyContent={"space-between"}>
-        <NavigationArrows
-          grid={secondGrid}
-          setGrid={setSecondGrid}
-          horizontalCarouselClass={horizontalCarouselClass}
-          setHorizontalCarouselClass={setHorizontalCarouselClass}
+        <Carousel
+          limitingModulo={4}
+          translatePercent={50}
+          itemArrayLength={secondGridArray.length}
         >
-          {secondGridArray}
-        </NavigationArrows>
+          <CenteredFlex>{secondGridArray}</CenteredFlex>
+        </Carousel>
       </CenteredFlex>
     </CenteredFlex>
   );

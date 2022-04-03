@@ -1,77 +1,33 @@
-import { Flex } from "@chakra-ui/react";
-import React from "react";
-import Card from "./Card";
+import React, { useState } from "react";
+import NavigationArrows from "./NavigationArrows";
+import CenteredFlex from "./CenteredFlex";
 
-const Carousel = () => {
+export const CarouselItem = ({ children }) => {
+  return <div className={"carousel-item"}>{children}</div>;
+};
+
+const Carousel = (props) => {
+  const { itemArrayLength, children, translatePercent, limitingModulo } = props;
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
-    <div
-      id="carouselExampleControls"
-      class="carousel slide"
-      data-ride="carousel"
+    <NavigationArrows
+      limitingModulo={limitingModulo}
+      itemArrayLength={itemArrayLength}
+      setActiveIndex={setActiveIndex}
+      activeIndex={activeIndex}
     >
-      <div
-        class="carousel-inner"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "80vw",
-        }}
-      >
-        <div class="carousel-item active">
-          <Flex justifyContent={"space-around"} alignItems={"center"}>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </Flex>
+      <CenteredFlex w={"1000px"} overflow={"hidden"}>
+        <div
+          className={"inner"}
+          style={{ transform: `translate(${activeIndex * translatePercent}%)` }}
+        >
+          {React.Children.map(children, (child, index) => {
+            return React.cloneElement(child);
+          })}
         </div>
-        <div class="carousel-item">
-          <Flex justifyContent={"space-around"} alignItems={"center"}>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </Flex>
-        </div>
-        <div class="carousel-item">
-          <Flex justifyContent={"space-around"} alignItems={"center"}>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </Flex>
-        </div>
-      </div>
-      <a
-        style={{
-          position: "fixed",
-          bottom: "500px",
-          left: "-70px",
-        }}
-        class="carousel-control-prev"
-        href="#carouselExampleControls"
-        role="button"
-        data-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a
-        class="carousel-control-next"
-        href="#carouselExampleControls"
-        role="button"
-        data-slide="next"
-        style={{
-          position: "fixed",
-          bottom: "500px",
-          right: "-70px",
-        }}
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
+      </CenteredFlex>
+    </NavigationArrows>
   );
 };
 
