@@ -20,13 +20,17 @@ const SinglePost = () => {
   });
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [post]);
+
+  useEffect(() => {
     if (data?.length > 0) {
       let auxData = data?.filter((item) => item.postTitle.trim() === postName);
       setPost(auxData[0]);
     }
     setFirstGrid({ ...firstGrid, end: data.length });
     changeCardData();
-  }, [data]);
+  }, [data, postName]);
 
   const changeCardData = () => {
     let tempArray = [];
@@ -36,20 +40,25 @@ const SinglePost = () => {
     tempArray =
       data.length > 0
         ? data?.map((item, index) => {
-            return (
-              <CarouselItem>
-                <Card
-                  title={item?.postTitle}
-                  description={item?.Description}
-                  date={item?.Date}
-                  engagement={item?.Engagement}
-                />
-              </CarouselItem>
-            );
+            console.log("item=", item);
+            if (item.postTitle?.trim() !== postName) {
+              return (
+                <CarouselItem>
+                  <Card
+                    title={item?.postTitle}
+                    description={item?.Description}
+                    date={item?.Date}
+                    engagement={item?.Engagement}
+                  />
+                </CarouselItem>
+              );
+            }
           })
-        : "no data";
+        : [];
+
     setFirstGridArray(tempArray);
   };
+
   console.log(firstGridArray);
 
   return (
